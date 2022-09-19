@@ -1,24 +1,24 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const path = require('path')
+const path = require('path');
 
-const adminRoutes = require('./routes/admin')
-const shopRoutes = require('./routes/shop')
-const usersRouter = require('./routes/users')
+const express = require('express');
+const bodyParser = require('body-parser');
 
-// app.use(bodyParser.urlencoded({extended: false}))
+const app = express();
 
-app.use('/admin', adminRoutes)
-app.use(shopRoutes)
-app.use(usersRouter)
+app.set('view engine', 'pug')
+app.set('views', 'views')
 
-app.use(express.static(path.join(__dirname, 'public')))
+const adminData = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/admin', adminData.routes);
+app.use(shopRoutes);
 
 app.use((req, res, next) => {
-  res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
-})
+    res.status(404).render('404')
+});
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.listen(3000);
