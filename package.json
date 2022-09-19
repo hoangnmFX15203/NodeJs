@@ -1,0 +1,30 @@
+{
+  "name": "2.-lab-1.2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --inspect app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoangnmFX15203/NodeJs.git"
+  },
+  "keywords": [
+    "Funix",
+    "LAB"
+  ],
+  "author": "HoangNM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoangnmFX15203/NodeJs/issues"
+  },
+  "homepage": "https://github.com/hoangnmFX15203/NodeJs#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
